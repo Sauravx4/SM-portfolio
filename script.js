@@ -82,9 +82,9 @@ function footerTemplate() {
       <div class="container footer-inner">
         <small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small>
         <nav aria-label="Social links" class="socials">
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:hello@saurav.dev">Email</a>
+          <a href="https://github.com/Sauravx4" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/saurav-mourya-596253274/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="sauravmourya54@gmail.com">Email</a>
           <a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
           <a href="admin.html">Admin</a>
         </nav>
