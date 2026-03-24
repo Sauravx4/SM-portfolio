@@ -1,5 +1,6 @@
-const PROJECTS = [
+const DEFAULT_PROJECTS = [
   {
+    id: crypto.randomUUID(),
     title: "InsightFlow Analytics Dashboard",
     description: "A metrics-focused SaaS dashboard with custom data visualizations and role-based reporting.",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
@@ -8,6 +9,7 @@ const PROJECTS = [
     source: "#"
   },
   {
+    id: crypto.randomUUID(),
     title: "Nova Commerce Experience",
     description: "High-converting e-commerce interface optimized for performance, accessibility, and mobile-first UX.",
     tech: ["Next.js", "Tailwind", "Stripe", "Vercel"],
@@ -16,6 +18,7 @@ const PROJECTS = [
     source: "#"
   },
   {
+    id: crypto.randomUUID(),
     title: "BrandForge Design System",
     description: "Scalable design system with reusable components and documentation for cross-team consistency.",
     tech: ["Figma", "Storybook", "Vue", "SCSS"],
@@ -24,6 +27,7 @@ const PROJECTS = [
     source: "#"
   },
   {
+    id: crypto.randomUUID(),
     title: "Pulse Productivity Suite",
     description: "Productivity app integrating notes, goals, and team collaboration with realtime updates.",
     tech: ["React Native", "Firebase", "Cloud Functions"],
@@ -33,23 +37,54 @@ const PROJECTS = [
   }
 ];
 
-const BLOG_POSTS = [
+const DEFAULT_BLOG_POSTS = [
   {
+    id: crypto.randomUUID(),
     title: "Designing Interfaces That Earn User Trust",
     date: "March 11, 2026",
     excerpt: "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive."
   },
   {
+    id: crypto.randomUUID(),
     title: "Performance Budgets for Modern Front-End Teams",
     date: "February 26, 2026",
     excerpt: "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline."
   },
   {
+    id: crypto.randomUUID(),
     title: "How I Structure Scalable Portfolio Projects",
     date: "January 19, 2026",
     excerpt: "My repeatable process for moving from concept to production-ready side projects with clean architecture."
   }
 ];
+
+const STORAGE_KEYS = {
+  projects: "portfolio_projects",
+  blogs: "portfolio_blogs"
+};
+
+function loadCollection(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function saveCollection(key, list) {
+  localStorage.setItem(key, JSON.stringify(list));
+}
+
+function getProjects() {
+  return loadCollection(STORAGE_KEYS.projects, DEFAULT_PROJECTS);
+}
+
+function getBlogs() {
+  return loadCollection(STORAGE_KEYS.blogs, DEFAULT_BLOG_POSTS);
+}
 
 function headerTemplate(activePage) {
   const links = [
@@ -86,6 +121,7 @@ function footerTemplate() {
           <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="mailto:hello@saurav.dev">Email</a>
           <a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
+          <a href="admin.html">Admin</a>
         </nav>
       </div>
     </footer>
@@ -133,16 +169,16 @@ function initSharedLayout(activePage) {
   );
 }
 
-function renderProjects(selector, limit = PROJECTS.length) {
+function renderProjects(selector, limit = getProjects().length) {
   const target = document.querySelector(selector);
   if (!target) return;
-  target.innerHTML = PROJECTS.slice(0, limit).map(projectCard).join("");
+  target.innerHTML = getProjects().slice(0, limit).map(projectCard).join("");
 }
 
 function renderBlog(selector) {
   const target = document.querySelector(selector);
   if (!target) return;
-  target.innerHTML = BLOG_POSTS.map(blogCard).join("");
+  target.innerHTML = getBlogs().map(blogCard).join("");
 }
 
 function initRevealAnimation() {
@@ -167,3 +203,14 @@ function initPortfolioPage({ activePage, projectSelector, projectLimit, blogSele
   if (blogSelector) renderBlog(blogSelector);
   initRevealAnimation();
 }
+
+window.PortfolioStore = {
+  getProjects,
+  getBlogs,
+  saveProjects: (items) => saveCollection(STORAGE_KEYS.projects, items),
+  saveBlogs: (items) => saveCollection(STORAGE_KEYS.blogs, items),
+  reset: () => {
+    localStorage.removeItem(STORAGE_KEYS.projects);
+    localStorage.removeItem(STORAGE_KEYS.blogs);
+  }
+};
