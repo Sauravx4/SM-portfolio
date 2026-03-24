@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Saurav Mourya for freelance, full-time, or collaboration opportunities." />
+  <title>Contact | Saurav Mourya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="section">
+    <section class="container contact-grid">
+      <div class="card" style="padding: 1rem;">
+        <h1 class="page-title" style="margin-top:0;">Contact</h1>
+        <p class="section-subtitle">Have a project in mind? Send me a message and I’ll get back to you soon.</p>
+        <form>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your full name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <aside class="card" style="padding: 1rem;">
+        <h2 class="section-title">Direct Reach</h2>
+        <p class="muted">Email: <a href="mailto:hello@saurav.dev">hello@saurav.dev</a></p>
+        <p class="muted">LinkedIn: <a href="https://linkedin.com" target="_blank" rel="noreferrer">linkedin.com/in/saurav</a></p>
+        <p class="muted">GitHub: <a href="https://github.com" target="_blank" rel="noreferrer">github.com/saurav</a></p>
+        <p class="muted">Pinterest: <a href="https://pinterest.com" target="_blank" rel="noreferrer">pinterest.com/saurav</a></p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    initPortfolioPage({ activePage: "Contact" });
+  </script>
+</body>
+</html>
