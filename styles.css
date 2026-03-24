@@ -94,11 +94,16 @@ a {
 }
 
 main {
-  padding-top: 110px;
+  padding-top: clamp(120px, 14vw, 140px);
+}
+
+section[id],
+.page-title {
+  scroll-margin-top: 120px;
 }
 
 .page-title {
-  margin: 1.2rem 0 0.8rem;
+  margin: 0 0 0.8rem;
   font-size: clamp(2rem, 4vw, 2.8rem);
 }
 
@@ -400,4 +405,14 @@ textarea {
   .admin-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.admin-auth {
+  max-width: 520px;
+  margin: 2rem auto 0;
+  padding: 1rem;
 }
