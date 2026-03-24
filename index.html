@@ -3,57 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Admin dashboard to manage portfolio projects and blog posts." />
-  <title>Admin Dashboard | Saurav Mourya</title>
+  <meta name="description" content="Saurav Mourya portfolio: modern product-focused developer and designer work." />
+  <title>Home | Saurav Mourya</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="section">
-    <section class="container">
-      <h1 class="page-title">Admin Dashboard</h1>
-      <p class="section-subtitle">Add or remove projects and blog posts without editing source code. Data is stored in your browser local storage.</p>
-
-      <div class="admin-toolbar card">
-        <p class="muted">Tip: after saving, open Home/Projects/Blog to see updates instantly on this browser.</p>
-        <button id="reset-data" class="btn btn-secondary" type="button">Reset to Default</button>
+  <main>
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Developer • Designer • Problem Solver</p>
+          <h1>Building premium digital products with clean, strategic design.</h1>
+          <p>I help brands and startups translate ideas into fast, scalable, and delightful web experiences. I focus on polished UI, robust engineering, and measurable impact.</p>
+          <div class="cta-row">
+            <a href="projects.html" class="btn btn-primary">Explore Projects</a>
+            <a href="contact.html" class="btn btn-secondary">Let’s Collaborate</a>
+          </div>
+        </div>
+        <aside class="profile-card reveal">
+          <img
+            class="profile-image"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+            alt="Professional portrait"
+          />
+        </aside>
       </div>
+    </section>
 
-      <div class="admin-grid">
-        <section class="card admin-section">
-          <h2 class="section-title">Manage Projects</h2>
-          <form id="project-form">
-            <input type="text" name="title" placeholder="Project title" required>
-            <textarea name="description" placeholder="Short project description" required></textarea>
-            <input type="text" name="tech" placeholder="Tech stack (comma separated)" required>
-            <input type="url" name="image" placeholder="Thumbnail image URL" required>
-            <input type="url" name="demo" placeholder="Live demo link" required>
-            <input type="url" name="source" placeholder="Source code link" required>
-            <button class="btn btn-primary" type="submit">Add Project</button>
-          </form>
-          <div id="project-list" class="admin-list"></div>
-        </section>
-
-        <section class="card admin-section">
-          <h2 class="section-title">Manage Blog Posts</h2>
-          <form id="blog-form">
-            <input type="text" name="title" placeholder="Post title" required>
-            <input type="text" name="date" placeholder="Date (e.g. March 24, 2026)" required>
-            <textarea name="excerpt" placeholder="Post excerpt" required></textarea>
-            <button class="btn btn-primary" type="submit">Add Post</button>
-          </form>
-          <div id="blog-list" class="admin-list"></div>
-        </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A selection of recent work from product design to full-stack implementation.</p>
+        <div id="featured-projects" class="grid"></div>
       </div>
     </section>
   </main>
 
   <script src="script.js"></script>
-  <script src="admin.js"></script>
   <script>
-    initPortfolioPage({ activePage: "" });
+    initPortfolioPage({ activePage: "Home", projectSelector: "#featured-projects", projectLimit: 3 });
   </script>
 </body>
 </html>
