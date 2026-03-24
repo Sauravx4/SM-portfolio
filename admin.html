@@ -12,14 +12,36 @@
 </head>
 <body>
   <main class="section">
-    <section class="container">
+    <section class="container" id="login-view">
+      <div class="card admin-auth">
+        <h1 class="page-title" style="margin-top:0;">Admin Login</h1>
+        <p class="section-subtitle">Enter admin password to access dashboard.</p>
+        <form id="login-form">
+          <input type="password" id="admin-password" placeholder="Enter admin password" required />
+          <button class="btn btn-primary" type="submit">Unlock Dashboard</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="container hidden" id="admin-view">
       <h1 class="page-title">Admin Dashboard</h1>
-      <p class="section-subtitle">Add or remove projects and blog posts without editing source code. Data is stored in your browser local storage.</p>
+      <p class="section-subtitle">Manage projects/blog without source editing and publish globally using GitHub API.</p>
 
       <div class="admin-toolbar card">
-        <p class="muted">Tip: after saving, open Home/Projects/Blog to see updates instantly on this browser.</p>
-        <button id="reset-data" class="btn btn-secondary" type="button">Reset to Default</button>
+        <p class="muted">All edits are saved as draft locally. Click Publish to sync to all devices.</p>
+        <button id="reset-data" class="btn btn-secondary" type="button">Reset Draft</button>
       </div>
+
+      <section class="card admin-section" style="margin-bottom: 1rem;">
+        <h2 class="section-title">Publish Settings</h2>
+        <form id="publish-form">
+          <input name="owner" placeholder="GitHub owner (e.g. sauravmourya54)" required />
+          <input name="repo" placeholder="Repository name" required />
+          <input name="branch" placeholder="Branch (e.g. main)" value="main" required />
+          <input name="token" type="password" placeholder="GitHub Personal Access Token" required />
+          <button class="btn btn-primary" type="button" id="publish-btn">Publish to GitHub</button>
+        </form>
+      </section>
 
       <div class="admin-grid">
         <section class="card admin-section">
@@ -52,8 +74,6 @@
 
   <script src="script.js"></script>
   <script src="admin.js"></script>
-  <script>
-    initPortfolioPage({ activePage: "" });
-  </script>
+  <script>initPortfolioPage({ activePage: "" });</script>
 </body>
 </html>
