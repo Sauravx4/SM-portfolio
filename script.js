@@ -65,8 +65,8 @@ function headerTemplate(activePage) {
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Go to home page">
-          <span class="logo">S</span>
-          <span>Saurav Mourya</span>
+         <img class="logo logo-img" src="http://sauravcodease.local/wp-content/uploads/2026/03/cropped-S_LOGO-1-75x43.png" alt="sauravcodease logo" />
+         <spanSauravcodease</span>
         </a>
         <nav aria-label="Primary navigation" class="nav-links">
           ${links.map(([label, href]) => `<a class="${label === activePage ? "active" : ""}" href="${href}">${label}</a>`).join("")}
