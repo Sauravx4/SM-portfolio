@@ -63,8 +63,10 @@
           <form id="blog-form">
             <input type="text" name="title" placeholder="Post title" required>
             <input type="text" name="date" placeholder="Date (e.g. March 24, 2026)" required>
-            <textarea name="excerpt" placeholder="Post excerpt" required></textarea>
-            <button class="btn btn-primary" type="submit">Add Post</button>
+            <input type="url" name="image" placeholder="Blog cover image URL (optional)">
+            <textarea name="excerpt" placeholder="Small description / excerpt" required></textarea>
+            <textarea name="content" placeholder="Full blog content for Read More page" required></textarea>
+            <button class="btn btn-primary" type="submit" id="blog-submit-btn">Add Post</button>
           </form>
           <div id="blog-list" class="admin-list"></div>
         </section>
