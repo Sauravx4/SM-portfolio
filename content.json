@@ -3,36 +3,7 @@
     "name": "sauravcodease",
     "logoUrl": "assets/logo.png"
   },
-  "projects": [
-    {
-      "id": "p1",
-      "title": "InsightFlow Analytics Dashboard",
-      "description": "A metrics-focused SaaS dashboard with custom data visualizations and role-based reporting.",
-      "tech": [
-        "React",
-        "TypeScript",
-        "Node.js",
-        "PostgreSQL"
-      ],
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-      "demo": "#",
-      "source": "#"
-    },
-    {
-      "id": "p2",
-      "title": "Nova Commerce Experience",
-      "description": "High-converting e-commerce interface optimized for performance, accessibility, and mobile-first UX.",
-      "tech": [
-        "Next.js",
-        "Tailwind",
-        "Stripe",
-        "Vercel"
-      ],
-      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
-      "demo": "#",
-      "source": "#"
-    }
-  ],
+  "projects": [],
   "blogs": [
     {
       "id": "29eab8fa-c0b9-47db-a12f-abbda4538921",
@@ -41,22 +12,6 @@
       "image": "https://raw.githubusercontent.com/Sauravx4/Saurav/main/Customer%20behavior%20insights%20dashboard.png",
       "excerpt": "A complete Data Analytics Project focused on understanding customer behaviour through data exploration, cleaning, analysis, and visualization using Python, SQL, Power BI, and Excel.",
       "content": "🧠 Customer Behaviour Analysis\nTurning Raw Data into Business Insights\n\nIn today’s data-driven world, understanding customer behaviour is not just an advantage—it’s a necessity. Businesses that leverage data effectively can optimize marketing strategies, improve customer retention, and boost revenue.\n\nIn this project, I performed a complete end-to-end data analytics workflow to uncover meaningful insights from customer data using tools like Python, SQL, Power BI, and Excel.\n\n📊 Project Objective\n\nThe goal of this project was to:\n\nAnalyze customer purchasing patterns\nSegment customers based on behavior\nIdentify high-value customers\nGenerate actionable insights for business decision-making\n🧰 Tools & Technologies Used\nTool\tPurpose\n🐍 Python\tData cleaning, transformation, EDA, and visualization\n🗃️ SQL\tData querying, aggregation, and segmentation\n📈 Power BI\tInteractive dashboards and storytelling\n📊 Excel\tData validation, pivot tables, and quick analysis\n📁 Project Architecture\n\nThe project follows a structured and scalable workflow:\n\nCustomer-Behaviour-Analysis/\n│\n├── data/\n│   ├── raw/\n│   └── cleaned/\n│\n├── notebooks/\n│   ├── 01_data_cleaning.ipynb\n│   ├── 02_exploratory_analysis.ipynb\n│   └── 03_modeling.ipynb\n│\n├── sql/\n│   └── customer_queries.sql\n│\n├── reports/\n│   ├── PowerBI_Dashboard.pbix\n│   └── Excel_Analysis.xlsx\n│\n├── visuals/\n│   └── dashboard_preview.png\n│\n├── requirements.txt\n└── README.md\n🔍 Step-by-Step Approach\n1️⃣ Data Collection\n\nCustomer transaction and demographic data were collected from databases and CSV files.\n\n2️⃣ Data Cleaning & Transformation\n\nUsing Pandas, I:\n\nHandled missing values and duplicates\nStandardized inconsistent formats\nConverted date columns for time-based analysis\n3️⃣ Exploratory Data Analysis (EDA)\n\nWith Matplotlib and Seaborn, I explored:\n\nCustomer spending distribution\nProduct performance\nSeasonal sales trends\nCorrelations between variables\n4️⃣ SQL-Based Analysis\n\nUsing SQL, I:\n\nSegmented customers based on purchase behavior\nCreated aggregated metrics using GROUP BY\nUsed JOINs and window functions for deeper insights\n5️⃣ Data Visualization (Power BI)\n\nBuilt an interactive dashboard featuring:\n\n📈 Sales trends over time\n👥 Customer segmentation (age, region, spending)\n🛍️ Product category performance\n💰 Customer Lifetime Value (CLV)\n6️⃣ Excel Reporting\n\nCreated:\n\nPivot tables\nSummary dashboards\nBusiness-friendly reports for stakeholders\n📊 Key Insights\n\nHere are some impactful findings from the analysis:\n\n🔹 Pareto Principle (80/20 Rule)\n\nAround 20% of customers contribute to ~75% of total revenue\n\n🔹 High-Value Customer Segment\n\nCustomers aged 25–40 show the highest loyalty and repeat purchases\n\n🔹 Top Product Categories\n\nElectronics and Home Appliances dominate recurring sales\n\n🔹 Regional Trends\n\nUrban customers have significantly higher repeat purchase rates\n\n💡 Business Recommendations\n\nBased on the insights:\n\n🎯 Focus marketing campaigns on high-value customers\n🔁 Implement loyalty programs for repeat buyers\n📍 Target urban regions for expansion strategies\n🛒 Optimize inventory for top-performing categories\n🚀 How to Run This Project\ngit clone https://github.com/yourusername/customer-behaviour-analysis.git\ncd customer-behaviour-analysis\npip install -r requirements.txt\n🧑‍💻 About Me\n\nSaurav\nData Analyst | Python | SQL | Power BI | Excel\n\n📧 sauravmourya54@gmail.com\n\n🔗 LinkedIn | GitHub\n\n✨ Final Thoughts\n\nThis project demonstrates how raw data can be transformed into actionable business insights through a structured analytics approach.\n\nFrom cleaning messy datasets to building interactive dashboards, every step plays a crucial role in telling a meaningful data story.\n\n💬 If you found this useful or have feedback, feel free to connect or reach out"
-    },
-    {
-      "id": "b1",
-      "title": "Designing Interfaces That Earn User Trust",
-      "date": "March 11, 2026",
-      "excerpt": "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive.",
-      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-      "content": "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive.\n\nThis is the full blog content page. You can replace it from admin panel."
-    },
-    {
-      "id": "b2",
-      "title": "Performance Budgets for Modern Front-End Teams",
-      "date": "February 26, 2026",
-      "excerpt": "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline.",
-      "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
-      "content": "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline.\n\nThis is the full blog content page. You can replace it from admin panel."
     }
   ]
 }
