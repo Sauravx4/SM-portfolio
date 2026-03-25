@@ -100,7 +100,7 @@ function footerTemplate() {
 }
 
 function projectCard(project) {
-  return `<article class="card reveal"><img class="thumb" src="${project.image}" alt="${project.title} preview image" loading="lazy"><div class="card-body"><h3>${project.title}</h3><p class="muted">${project.description}</p><div class="tech-stack">${project.tech.map((item) => `<span class="tag">${item}</span>`).join("")}</div><div class="links-row"><a class="btn btn-secondary" href="${project.demo}" target="_blank" rel="noreferrer">Live Demo</a><a class="btn btn-secondary" href="${project.source}" target="_blank" rel="noreferrer">Source Code</a></div></div></article>`;
+  return `<article class="card reveal"><img class="thumb" src="${project.image}" alt="${project.title} preview image" loading="lazy"><div class="card-body"><h3>${project.title}</h3><p class="muted">${project.description}</p><div class="tech-stack">${project.tech.map((item) => `<span class="tag">${item}</span>`).join("")}</div><div class="links-row"><a class="btn btn-secondary" href="${project.demo}" target="_blank" rel="noreferrer">Live Demo</a><a class="btn btn-secondary" href="${project.source}" target="_blank" rel="noreferrer">Read Blog</a></div></div></article>`;
 }
 
 function blogCard(post) {
