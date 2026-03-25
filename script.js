@@ -1,4 +1,8 @@
 const FALLBACK_DATA = {
+  brand: {
+    name: "sauravcodease",
+    logoUrl: "assets/logo.png"
+  },
   projects: [
     {
       id: "local-p1",
@@ -30,6 +34,7 @@ async function fetchPublishedContent() {
     if (!response.ok) throw new Error("Published content unavailable");
     const payload = await response.json();
     if (!Array.isArray(payload.projects) || !Array.isArray(payload.blogs)) throw new Error("Invalid content format");
+    payload.brand = payload.brand || FALLBACK_DATA.brand;
     return payload;
   } catch {
     return null;
@@ -42,6 +47,7 @@ function loadLocalDraft() {
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed.projects) || !Array.isArray(parsed.blogs)) return null;
+    parsed.brand = parsed.brand || FALLBACK_DATA.brand;
     return parsed;
   } catch {
     return null;
@@ -65,8 +71,8 @@ function headerTemplate(activePage) {
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Go to home page">
-         <img class="logo logo-img" src="http://sauravcodease.local/wp-content/uploads/2026/03/cropped-S_LOGO-1-75x43.png" alt="sauravcodease logo" />
-         <spanSauravcodease</span>
+          <img class="logo logo-img" src="${dataState.brand.logoUrl}" alt="${dataState.brand.name} logo" loading="lazy" />
+          <span>${dataState.brand.name}</span>
         </a>
         <nav aria-label="Primary navigation" class="nav-links">
           ${links.map(([label, href]) => `<a class="${label === activePage ? "active" : ""}" href="${href}">${label}</a>`).join("")}
@@ -82,9 +88,9 @@ function footerTemplate() {
       <div class="container footer-inner">
         <small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small>
         <nav aria-label="Social links" class="socials">
-          <a href="https://github.com/Sauravx4" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/saurav-mourya-596253274/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="sauravmourya54@gmail.com">Email</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:hello@saurav.dev">Email</a>
           <a href="https://pinterest.com" target="_blank" rel="noreferrer">Pinterest</a>
           <a href="admin.html">Admin</a>
         </nav>
