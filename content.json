@@ -1,4 +1,8 @@
 {
+  "brand": {
+    "name": "sauravcodease",
+    "logoUrl": "assets/logo.png"
+  },
   "projects": [
     {
       "id": "p1",
