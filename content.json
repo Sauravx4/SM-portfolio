@@ -5,6 +5,20 @@
   },
   "projects": [
     {
+      "id": "94df2599-fb97-43d7-bec8-8e4c5e8200ea",
+      "title": "VIZ-ly (A Dashboard Platform Application)",
+      "description": "AI Dashboard Builder is a full-stack data visualization web app built with React and FastAPI that allows users to upload datasets (CSV/Excel), preview data, and generate interactive charts. It features a drag-and-drop dashboard builder with resizable components and supports exporting dashboards as images or PDFs, making it a lightweight alternative to tools like Power BI and Tableau.",
+      "tech": [
+        "React.js",
+        "Python",
+        "HTML",
+        "CSS"
+      ],
+      "image": "https://raw.githubusercontent.com/Sauravx4/Saurav/main/vizly.png",
+      "demo": "https://github.com/Sauravx4/viz-dashboard-platform",
+      "source": "https://sauravx4.github.io/SM-portfolio/blog-post.html?id=004d2f88-a995-443a-9031-68e21cec3899"
+    },
+    {
       "id": "fd244709-4114-4ff2-8e3a-1f552ae3a1c6",
       "title": "Cal-c (A Upgraded Calculator)",
       "description": "A Flutter-based commercial calculator app with GST calculator, temperature converter, profit calculator, and shopkeeper notes using Provider and SharedPreferences.",
