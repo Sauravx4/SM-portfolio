@@ -512,3 +512,19 @@ textarea {
 .blog-full .card-body p {
   color: #d5dcfb;
 }
+
+.bio-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 2.4vw, 1.8rem);
+}
+
+.bio-points {
+  margin: 0.9rem 0 1rem;
+  padding-left: 1.2rem;
+  color: #d8def8;
+  display: grid;
+  gap: 0.35rem;
+}
