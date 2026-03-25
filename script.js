@@ -104,7 +104,7 @@ function projectCard(project) {
 }
 
 function blogCard(post) {
-  return `<article class="card reveal"><div class="card-body"><p class="blog-meta">${post.date}</p><h3>${post.title}</h3><p class="muted">${post.excerpt}</p><a class="btn btn-secondary" href="#">Read More</a></div></article>`;
+  return `<article class="card reveal">${post.image ? `<img class="thumb" src="${post.image}" alt="${post.title} cover image" loading="lazy">` : ""}<div class="card-body"><p class="blog-meta">${post.date}</p><h3>${post.title}</h3><p class="muted">${post.excerpt}</p><a class="btn btn-secondary" href="blog-post.html?id=${encodeURIComponent(post.id)}">Read More</a></div></article>`;
 }
 
 function initSharedLayout(activePage) {
@@ -138,6 +138,29 @@ function renderProjectPublisher(selector) {
   `).join("");
 }
 
+
+function renderBlogPostPage(selector) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const post = dataState.blogs.find((item) => item.id === id);
+
+  if (!post) {
+    target.innerHTML = `<div class="card-body"><h1>Post not found</h1><p class="muted">Please go back to the blog list and pick a valid article.</p><a class="btn btn-secondary" href="blog.html">Back to Blog</a></div>`;
+    return;
+  }
+
+  target.innerHTML = `
+    ${post.image ? `<img class="thumb" src="${post.image}" alt="${post.title} cover image" loading="lazy">` : ""}
+    <div class="card-body">
+      <p class="blog-meta">${post.date}</p>
+      <h1>${post.title}</h1>
+      <p>${(post.content || post.excerpt).replace(/\n/g, "<br>")}</p>
+      <a class="btn btn-secondary" href="blog.html">← Back to Blog</a>
+    </div>
+  `;
+}
 function initRevealAnimation() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -169,3 +192,5 @@ window.PortfolioStore = {
   },
   resetDraft: () => localStorage.removeItem(STORAGE_KEY)
 };
+
+window.renderBlogPostPage = renderBlogPostPage;
