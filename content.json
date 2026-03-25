@@ -3,7 +3,22 @@
     "name": "sauravcodease",
     "logoUrl": "assets/logo.png"
   },
-  "projects": [],
+  "projects": [
+    {
+      "id": "3364fcff-71a1-48e2-9383-7f6ae7f750e8",
+      "title": "Customer Behaviour Analysis",
+      "description": "A complete Data Analytics Project focused on understanding customer behaviour through data exploration, cleaning, analysis, and visualization using Python, SQL, Power BI, and Excel.",
+      "tech": [
+        "Python",
+        "SQL",
+        "PowerBI",
+        "Excel"
+      ],
+      "image": "https://raw.githubusercontent.com/Sauravx4/Saurav/main/Customer%20behavior%20insights%20dashboard.png",
+      "demo": "https://github.com/Sauravx4/Data-Analyst-project-1",
+      "source": "https://sauravx4.github.io/SM-portfolio/blog-post.html?id=29eab8fa-c0b9-47db-a12f-abbda4538921"
+    }
+  ],
   "blogs": [
     {
       "id": "29eab8fa-c0b9-47db-a12f-abbda4538921",
