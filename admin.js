@@ -1,4 +1,5 @@
 const ADMIN_PASSWORD = "Saurav@2026Secure";
+let editingBlogId = null;
 
 function showAdmin(isVisible) {
   document.getElementById("login-view").classList.toggle("hidden", isVisible);
@@ -13,11 +14,24 @@ function saveWorkingData(payload) {
   window.PortfolioStore.setData(payload);
 }
 
-function itemRow(label, onDelete) {
+function createActionButton(label, onClick) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "btn btn-secondary";
+  btn.textContent = label;
+  btn.addEventListener("click", onClick);
+  return btn;
+}
+
+function itemRow(label, actions) {
   const row = document.createElement("div");
   row.className = "admin-item";
-  row.innerHTML = `<span>${label}</span><button type="button" class="btn btn-secondary">Delete</button>`;
-  row.querySelector("button").addEventListener("click", onDelete);
+  const title = document.createElement("span");
+  title.textContent = label;
+  const actionWrap = document.createElement("div");
+  actionWrap.className = "admin-item-actions";
+  actions.forEach((action) => actionWrap.appendChild(action));
+  row.append(title, actionWrap);
   return row;
 }
 
@@ -26,13 +40,33 @@ function renderProjectList() {
   const projects = getWorkingData().projects;
   container.innerHTML = "";
   projects.forEach((project, idx) => {
-    container.appendChild(itemRow(`${idx + 1}. ${project.title}`, () => {
-      const data = getWorkingData();
-      data.projects = data.projects.filter((x) => x.id !== project.id);
-      saveWorkingData(data);
-      renderProjectList();
-    }));
+    container.appendChild(itemRow(`${idx + 1}. ${project.title}`, [
+      createActionButton("Delete", () => {
+        const data = getWorkingData();
+        data.projects = data.projects.filter((x) => x.id !== project.id);
+        saveWorkingData(data);
+        renderProjectList();
+      })
+    ]));
   });
+}
+
+function fillBlogForm(post) {
+  const form = document.getElementById("blog-form");
+  form.elements.title.value = post.title;
+  form.elements.date.value = post.date;
+  form.elements.image.value = post.image || "";
+  form.elements.excerpt.value = post.excerpt;
+  form.elements.content.value = post.content || post.excerpt;
+  editingBlogId = post.id;
+  document.getElementById("blog-submit-btn").textContent = "Update Post";
+}
+
+function resetBlogForm() {
+  const form = document.getElementById("blog-form");
+  form.reset();
+  editingBlogId = null;
+  document.getElementById("blog-submit-btn").textContent = "Add Post";
 }
 
 function renderBlogList() {
@@ -40,12 +74,16 @@ function renderBlogList() {
   const posts = getWorkingData().blogs;
   container.innerHTML = "";
   posts.forEach((post, idx) => {
-    container.appendChild(itemRow(`${idx + 1}. ${post.title}`, () => {
-      const data = getWorkingData();
-      data.blogs = data.blogs.filter((x) => x.id !== post.id);
-      saveWorkingData(data);
-      renderBlogList();
-    }));
+    container.appendChild(itemRow(`${idx + 1}. ${post.title}`, [
+      createActionButton("Edit", () => fillBlogForm(post)),
+      createActionButton("Delete", () => {
+        const data = getWorkingData();
+        data.blogs = data.blogs.filter((x) => x.id !== post.id);
+        saveWorkingData(data);
+        if (editingBlogId === post.id) resetBlogForm();
+        renderBlogList();
+      })
+    ]));
   });
 }
 
@@ -127,17 +165,25 @@ document.getElementById("project-form").addEventListener("submit", (event) => {
 document.getElementById("blog-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.currentTarget);
+
   const post = {
-    id: crypto.randomUUID(),
+    id: editingBlogId || crypto.randomUUID(),
     title: formData.get("title").toString().trim(),
     date: formData.get("date").toString().trim(),
-    excerpt: formData.get("excerpt").toString().trim()
+    image: formData.get("image").toString().trim(),
+    excerpt: formData.get("excerpt").toString().trim(),
+    content: formData.get("content").toString().trim()
   };
 
   const data = getWorkingData();
-  data.blogs = [post, ...data.blogs];
+  if (editingBlogId) {
+    data.blogs = data.blogs.map((item) => (item.id === editingBlogId ? post : item));
+  } else {
+    data.blogs = [post, ...data.blogs];
+  }
+
   saveWorkingData(data);
-  event.currentTarget.reset();
+  resetBlogForm();
   renderBlogList();
 });
 
