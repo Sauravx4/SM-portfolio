@@ -35,22 +35,20 @@
   ],
   "blogs": [
     {
-      "id": "5bf3c796-e3e1-4bba-83e8-8302bd7fc644",
-      "title": "Customer Behaviour Analysis",
-      "date": "march 24,2026",
-      "excerpt": "🧠 Customer Behaviour Analysis\nTurning Raw Data into Business Decisions\n📌 Overview\nWhat if businesses could predict what customers want before they even ask?\n\nThis project explores how data can uncover hidden patterns in customer behavior—transforming raw transactional data into meaningful insights that drive smarter business decisions. From identifying high-value customers to understanding purchasing trends, this analysis bridges the gap between data and strategy.\n\n🎯 The Objective\nThe goal wasn’t just to analyze data—but to answer real business questions:\n\nWho are the most valuable customers?\nWhat products drive repeat purchases?\nWhich regions and demographics contribute the most revenue?\nHow can businesses improve retention and marketing strategies?\n📂 Understanding the Data\nThe dataset combines:\n\nCustomer demographics (age, region, etc.)\nTransaction history\nProduct categories\nPurchase frequency and value\nThis mix allows both behavioral analysis and business insight generation.\n\n🛠️ Tools That Powered the Analysis\nInstead of relying on a single tool, this project uses a full analytics stack:\n\nPython → Data cleaning, transformation, and statistical exploration\nSQL → Deep querying and customer segmentation\nPower BI → Interactive dashboards and storytelling\nExcel → Quick validation and stakeholder-friendly summaries\nThis mirrors how real-world data teams operate.\n\n🔍 The Process: From Raw Data to Insights\n1. Data Cleaning\nMessy data can destroy good analysis.\n\nRemoved duplicates\nHandled missing values\nStandardized formats\n2. Exploratory Data Analysis (EDA)\nThis is where patterns begin to emerge:\n\nSales distributions\nCustomer spending behavior\nSeasonal purchase trends\n3. SQL-Driven Insights\nUsing advanced queries:\n\nSegmented customers by value and frequency\nIdentified repeat buyers\nAnalyzed revenue contribution\n4. Dashboard Creation\nThe analysis came to life through interactive visuals:\n\nSales trends over time\nCustomer segmentation\nProduct performance\nCustomer Lifetime Value (CLV)\n📊 Key Insights 💡\n💰 Revenue Concentration\nA small group of customers drives the majority of revenue.\n→ Classic 80/20 rule in action.\n\n👥 High-Value Customers\nCustomers aged 25–40 show the highest retention and engagement.\n\n🛒 Product Behavior\nElectronics and home appliances dominate repeat purchases—indicating strong product loyalty.\n\n🌍 Regional Trends\nUrban customers:\n\nPurchase more frequently\nShow higher retention rates\n⚡ Business Impact\nThis project isn’t just analysis—it provides actionable direction:\n\n🎯 Target high-value customer segments\n📢 Optimize marketing campaigns based on demographics\n📦 Focus on high-performing product categories\n🔁 Improve retention strategies using behavioral insights\n🚧 Challenges & Learnings\nChallenges\nHandling inconsistent and incomplete datasets\nBalancing multiple tools in one workflow\nTranslating technical results into business insights\nLearnings\nData cleaning is 70% of the job\nVisualization is as important as analysis\nBusiness understanding > technical complexity\n🖥️ Dashboard Preview (Where the Magic Happens)\n👉 This is where stakeholders interact with the data, explore trends, and make decisions.\n\n\n🔗 Final Thoughts\nThis project reflects a complete data analytics workflow—from raw data to real-world insights. It demonstrates not just technical skills, but the ability to think like a business decision-maker."
-    },
-    {
       "id": "b1",
       "title": "Designing Interfaces That Earn User Trust",
       "date": "March 11, 2026",
-      "excerpt": "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive."
+      "excerpt": "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive.",
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "content": "Practical UX heuristics and visual clarity principles to make products feel reliable and intuitive.\n\nThis is the full blog content page. You can replace it from admin panel."
     },
     {
       "id": "b2",
       "title": "Performance Budgets for Modern Front-End Teams",
       "date": "February 26, 2026",
-      "excerpt": "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline."
+      "excerpt": "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline.",
+      "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+      "content": "A framework for keeping websites fast with measurable budgets, CI checks, and asset discipline.\n\nThis is the full blog content page. You can replace it from admin panel."
     }
   ]
 }
