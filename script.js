@@ -132,9 +132,8 @@ function renderProjectPublisher(selector) {
   const doubled = [...projects, ...projects];
   target.innerHTML = doubled.map((project) => `
     <article class="publisher-item">
-      <h4>${project.title}</h4>
-      <p>${project.description}</p>
-      <small>${Array.isArray(project.tech) ? project.tech.join(" • ") : ""}</small>
+      <img src="${project.image}" alt="${project.title} thumbnail" loading="lazy" />
+      <div class="publisher-caption">${project.title}</div>
     </article>
   `).join("");
 }
