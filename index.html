@@ -23,12 +23,14 @@
             <a href="contact.html" class="btn btn-secondary">Let’s Collaborate</a>
           </div>
         </div>
-        <aside class="profile-card reveal">
-          <img
-            class="profile-image"
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
-            alt="Professional portrait"
-          />
+        <aside class="publisher-screen reveal">
+          <div class="publisher-head">
+            <strong>Project Publisher</strong>
+            <span>Live feed</span>
+          </div>
+          <div class="publisher-viewport">
+            <div id="publisher-track" class="publisher-track"></div>
+          </div>
         </aside>
       </div>
     </section>
@@ -44,7 +46,7 @@
 
   <script src="script.js"></script>
   <script>
-    initPortfolioPage({ activePage: "Home", projectSelector: "#featured-projects", projectLimit: 3 });
+    initPortfolioPage({ activePage: "Home", projectSelector: "#featured-projects", projectLimit: 3, publisherSelector: "#publisher-track" });
   </script>
 </body>
 </html>
