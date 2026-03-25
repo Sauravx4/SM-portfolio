@@ -77,6 +77,12 @@ a {
   font-weight: 800;
 }
 
+.logo-img {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem;
+}
+
 .nav-links {
   display: flex;
   gap: 1.3rem;
