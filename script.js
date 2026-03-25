@@ -125,6 +125,20 @@ function renderBlog(selector) {
   target.innerHTML = dataState.blogs.map(blogCard).join("");
 }
 
+function renderProjectPublisher(selector) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+  const projects = dataState.projects;
+  const doubled = [...projects, ...projects];
+  target.innerHTML = doubled.map((project) => `
+    <article class="publisher-item">
+      <h4>${project.title}</h4>
+      <p>${project.description}</p>
+      <small>${Array.isArray(project.tech) ? project.tech.join(" • ") : ""}</small>
+    </article>
+  `).join("");
+}
+
 function initRevealAnimation() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -138,11 +152,12 @@ function initRevealAnimation() {
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 }
 
-async function initPortfolioPage({ activePage, projectSelector, projectLimit, blogSelector }) {
+async function initPortfolioPage({ activePage, projectSelector, projectLimit, blogSelector, publisherSelector }) {
   await initData();
   initSharedLayout(activePage);
   if (projectSelector) renderProjects(projectSelector, projectLimit);
   if (blogSelector) renderBlog(blogSelector);
+  if (publisherSelector) renderProjectPublisher(publisherSelector);
   initRevealAnimation();
 }
 
