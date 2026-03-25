@@ -5,10 +5,29 @@
   },
   "projects": [
     {
+      "id": "f6496724-5ad2-49b7-a615-ce357a5d3765",
+      "title": "Customer Behaviour Analysis",
+      "description": "A complete Data Analytics Project focused on understanding customer behaviour through data exploration, cleaning, analysis, and visualization using Python, SQL, Power BI, and Excel.",
+      "tech": [
+        "Python",
+        "SQL",
+        "PowerBI",
+        "Excel"
+      ],
+      "image": "https://chatgpt.com/s/m_69c3933138ac819190e97552e7f5cf1f",
+      "demo": "https://github.com/Sauravx4/Data-Analyst-project-1/blob/main/Customer_behaviour_Dashboard1.pbix",
+      "source": "https://github.com/Sauravx4/Data-Analyst-project-1"
+    },
+    {
       "id": "p1",
       "title": "InsightFlow Analytics Dashboard",
       "description": "A metrics-focused SaaS dashboard with custom data visualizations and role-based reporting.",
-      "tech": ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      "tech": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL"
+      ],
       "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
       "demo": "#",
       "source": "#"
@@ -17,7 +36,12 @@
       "id": "p2",
       "title": "Nova Commerce Experience",
       "description": "High-converting e-commerce interface optimized for performance, accessibility, and mobile-first UX.",
-      "tech": ["Next.js", "Tailwind", "Stripe", "Vercel"],
+      "tech": [
+        "Next.js",
+        "Tailwind",
+        "Stripe",
+        "Vercel"
+      ],
       "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
       "demo": "#",
       "source": "#"
