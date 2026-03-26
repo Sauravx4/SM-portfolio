@@ -92,18 +92,18 @@ SM-portfolio/
 │   ├── images/
 │   └── icons/
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Saurav
+# Saurav
 
 🌐 Portfolio: https://sauravcodease.netlify.app
 💼 GitHub: https://github.com/Sauravx4
 
-📄 License
+## 📄 License
 
-This project is licensed under the MIT License
+# This project is licensed under the MIT License
 
-## 👉 https://opensource.org/licenses/MIT
+👉 https://opensource.org/licenses/MIT
 
 ⭐ Support
 
