@@ -70,7 +70,6 @@ This portfolio website is designed to:
 Built using HTML, CSS, and JavaScript
 
 ## 🔹 Step 2: Version Control
-```bash
 git init
 git add .
 git commit -m "Initial commit"
@@ -81,7 +80,9 @@ git push -u origin main
 Login to Netlify
 Import GitHub repository
 Click Deploy
-📂 Project Structure
+
+
+# 📂 Project Structure
 SM-portfolio/
 │── index.html
 │── style.css
