@@ -74,8 +74,7 @@ function headerTemplate(activePage) {
           <img class="logo logo-img" src="${dataState.brand.logoUrl}" alt="${dataState.brand.name} logo" loading="lazy" />
           <span>${dataState.brand.name}</span>
         </a>
-        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav id="primary-nav" aria-label="Primary navigation" class="nav-links">
+        <nav aria-label="Primary navigation" class="nav-links">
           ${links.map(([label, href]) => `<a class="${label === activePage ? "active" : ""}" href="${href}">${label}</a>`).join("")}
         </nav>
       </div>
@@ -97,6 +96,16 @@ function footerTemplate() {
         </nav>
       </div>
     </footer>
+  `;
+}
+
+
+function mobileNavTemplate(activePage) {
+  const links = [["Home", "index.html"], ["Projects", "projects.html"], ["Blog", "blog.html"], ["Contact", "contact.html"]];
+  return `
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      ${links.map(([label, href]) => `<a class="${label === activePage ? "active" : ""}" href="${href}">${label}</a>`).join("")}
+    </nav>
   `;
 }
 
@@ -131,30 +140,9 @@ function initStarfield() {
 }
 
 
-function initMobileMenu() {
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("primary-nav");
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    const expanded = nav.classList.contains("open");
-    toggle.setAttribute("aria-expanded", String(expanded));
-    toggle.textContent = expanded ? "✕" : "☰";
-  });
-
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "☰";
-    });
-  });
-}
-
 function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
-  initMobileMenu();
+  document.body.insertAdjacentHTML("beforeend", mobileNavTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", footerTemplate());
   document.body.insertAdjacentHTML("beforeend", '<button class="fab" aria-label="Get in touch" title="Get in Touch" onclick="location.href=\'contact.html\'">✉</button>');
 }
