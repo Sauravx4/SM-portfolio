@@ -670,16 +670,14 @@ h1:hover, h2:hover, h3:hover, p:hover, li:hover, small:hover, .tag:hover {
 
 .typewriter-text {
   display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
+  min-height: 1.2em;
   border-right: 2px solid rgba(194, 119, 255, 0.95);
-  width: 0;
-  animation: typing 4.6s steps(58, end) 0.3s forwards, blinkCaret 0.8s step-end infinite;
+  animation: blinkCaret 0.8s step-end infinite;
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+.typewriter-text.done {
+  border-right: none;
+  animation: none;
 }
 
 @keyframes blinkCaret {
@@ -691,7 +689,5 @@ h1:hover, h2:hover, h3:hover, p:hover, li:hover, small:hover, .tag:hover {
   .typewriter-text {
     white-space: normal;
     width: 100%;
-    border-right: none;
-    animation: none;
   }
 }
