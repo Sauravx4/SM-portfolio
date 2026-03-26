@@ -144,8 +144,19 @@ function initStarfield() {
 function initTypewriter() {
   const target = document.getElementById("hero-typewriter");
   if (!target) return;
-  const text = target.dataset.text || "";
+
+  const text = target.dataset.text || target.textContent.trim();
+  if (!text) return;
+
+  if (target.dataset.typed === "true") {
+    target.textContent = text;
+    target.classList.add("done");
+    return;
+  }
+
+  target.dataset.typed = "true";
   target.textContent = "";
+
   let i = 0;
   const timer = setInterval(() => {
     i += 1;
@@ -155,6 +166,14 @@ function initTypewriter() {
       target.classList.add("done");
     }
   }, 38);
+
+  setTimeout(() => {
+    if (!target.textContent.trim()) {
+      target.textContent = text;
+      target.classList.add("done");
+      clearInterval(timer);
+    }
+  }, 700);
 }
 
 function initSharedLayout(activePage) {
