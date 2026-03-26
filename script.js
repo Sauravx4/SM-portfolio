@@ -140,6 +140,23 @@ function initStarfield() {
 }
 
 
+
+function initTypewriter() {
+  const target = document.getElementById("hero-typewriter");
+  if (!target) return;
+  const text = target.dataset.text || "";
+  target.textContent = "";
+  let i = 0;
+  const timer = setInterval(() => {
+    i += 1;
+    target.textContent = text.slice(0, i);
+    if (i >= text.length) {
+      clearInterval(timer);
+      target.classList.add("done");
+    }
+  }, 38);
+}
+
 function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", mobileNavTemplate(activePage));
@@ -215,6 +232,7 @@ async function initPortfolioPage({ activePage, projectSelector, projectLimit, bl
   if (projectSelector) renderProjects(projectSelector, projectLimit);
   if (blogSelector) renderBlog(blogSelector);
   if (publisherSelector) renderProjectPublisher(publisherSelector);
+  initTypewriter();
   initRevealAnimation();
 }
 
