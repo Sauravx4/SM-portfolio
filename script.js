@@ -74,7 +74,8 @@ function headerTemplate(activePage) {
           <img class="logo logo-img" src="${dataState.brand.logoUrl}" alt="${dataState.brand.name} logo" loading="lazy" />
           <span>${dataState.brand.name}</span>
         </a>
-        <nav aria-label="Primary navigation" class="nav-links">
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav id="primary-nav" aria-label="Primary navigation" class="nav-links">
           ${links.map(([label, href]) => `<a class="${label === activePage ? "active" : ""}" href="${href}">${label}</a>`).join("")}
         </nav>
       </div>
@@ -107,8 +108,53 @@ function blogCard(post) {
   return `<article class="card reveal">${post.image ? `<img class="thumb" src="${post.image}" alt="${post.title} cover image" loading="lazy">` : ""}<div class="card-body"><p class="blog-meta">${post.date}</p><h3>${post.title}</h3><p class="muted">${post.excerpt}</p><a class="btn btn-secondary" href="blog-post.html?id=${encodeURIComponent(post.id)}">Read More</a></div></article>`;
 }
 
+
+function initStarfield() {
+  if (document.getElementById("starfield")) return;
+  const field = document.createElement("div");
+  field.id = "starfield";
+  field.className = "starfield";
+
+  const totalStars = 90;
+  for (let i = 0; i < totalStars; i += 1) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.style.setProperty("--x", `${Math.random() * 100}%`);
+    star.style.setProperty("--y", `${Math.random() * 100}%`);
+    star.style.setProperty("--size", `${Math.random() * 2 + 1}px`);
+    star.style.setProperty("--duration", `${Math.random() * 4 + 2}s`);
+    star.style.setProperty("--delay", `${Math.random() * 5}s`);
+    field.appendChild(star);
+  }
+
+  document.body.prepend(field);
+}
+
+
+function initMobileMenu() {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("primary-nav");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    const expanded = nav.classList.contains("open");
+    toggle.setAttribute("aria-expanded", String(expanded));
+    toggle.textContent = expanded ? "✕" : "☰";
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "☰";
+    });
+  });
+}
+
 function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
+  initMobileMenu();
   document.body.insertAdjacentHTML("beforeend", footerTemplate());
   document.body.insertAdjacentHTML("beforeend", '<button class="fab" aria-label="Get in touch" title="Get in Touch" onclick="location.href=\'contact.html\'">✉</button>');
 }
@@ -176,6 +222,7 @@ function initRevealAnimation() {
 
 async function initPortfolioPage({ activePage, projectSelector, projectLimit, blogSelector, publisherSelector }) {
   await initData();
+  initStarfield();
   initSharedLayout(activePage);
   if (projectSelector) renderProjects(projectSelector, projectLimit);
   if (blogSelector) renderBlog(blogSelector);
