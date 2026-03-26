@@ -13,7 +13,6 @@
   <img src="https://raw.githubusercontent.com/Sauravx4/Saurav/main/Screenshot%202026-03-26%20170101.png" alt="Portfolio Screenshot" width="100%"/>
 </p>
 
-> ⚠️ **Note:** Upload your image to your repo (e.g., `assets/portfolio-preview.png`) and ensure the path matches.
 
 ---
 
