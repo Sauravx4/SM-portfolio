@@ -144,7 +144,7 @@ function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", mobileNavTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", footerTemplate());
-  document.body.insertAdjacentHTML("beforeend", '<button class="fab" aria-label="Get Connect" title="Get Connect" onclick="location.href=\'contact.html\'">🤝</button>');
+  document.body.insertAdjacentHTML("beforeend", '<button class="fab" aria-label="Get Connect" title="Get Connect" onclick="location.href=\'contact.html\'">↗</button>');
 }
 
 function renderProjects(selector, limit = dataState.projects.length) {
