@@ -563,8 +563,7 @@ textarea {
 }
 
 main,
-.site-footer,
-.fab {
+.site-footer {
   position: relative;
   z-index: 1;
 }
@@ -627,18 +626,33 @@ textarea,
 
 .card:hover,
 .publisher-item:hover {
-  box-shadow: 0 0 0 1px rgba(122, 162, 255, 0.25), 0 0 26px rgba(77, 226, 197, 0.22);
+  box-shadow: 0 0 0 1px rgba(182, 103, 255, 0.7), 0 0 34px rgba(172, 95, 255, 0.55), 0 0 68px rgba(132, 62, 255, 0.4);
 }
 
 .btn:hover,
 .mobile-nav a:hover,
 .site-footer a:hover,
 .nav-links a:hover {
-  box-shadow: 0 0 0 1px rgba(122, 162, 255, 0.25), 0 0 20px rgba(122, 162, 255, 0.3);
+  box-shadow: 0 0 0 1px rgba(194, 119, 255, 0.75), 0 0 22px rgba(194, 119, 255, 0.7), 0 0 45px rgba(138, 58, 255, 0.55);
 }
 
 input:focus,
 textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 1px rgba(122, 162, 255, 0.45), 0 0 18px rgba(77, 226, 197, 0.25);
+  box-shadow: 0 0 0 1px rgba(194, 119, 255, 0.85), 0 0 24px rgba(172, 95, 255, 0.6);
+}
+
+
+.fab {
+  right: max(1rem, 4vw);
+  left: auto;
+  z-index: 35;
+  background: linear-gradient(130deg, #b667ff, #7a3dff);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(210, 146, 255, 0.7), 0 0 26px rgba(154, 73, 255, 0.8), 0 0 52px rgba(101, 36, 214, 0.5);
+}
+
+.fab:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 0 1px rgba(230, 184, 255, 0.95), 0 0 30px rgba(181, 103, 255, 0.95), 0 0 64px rgba(130, 52, 255, 0.65);
 }
