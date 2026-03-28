@@ -656,9 +656,11 @@ textarea:focus {
 
 .fab:hover {
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 0 0 1px rgba(230, 184, 255, 0.95), 0 0 30px rgba(181, 103, 255, 0.95), 0 0 64px rgba(130, 52, 255, 0.65);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.9),     /* soft white border */
+    0 0 20px rgba(200, 200, 200, 0.8),      /* light grey glow */
+    0 0 40px rgba(150, 150, 150, 0.6);      /* deeper grey outer glow */
 }
-
 
 h1:hover, h2:hover, h3:hover, p:hover, li:hover, small:hover, .tag:hover {
   text-shadow: 0 0 14px rgba(194, 119, 255, 0.65);
