@@ -654,20 +654,20 @@ textarea:focus {
   box-shadow: 0 0 0 1px rgba(230, 184, 255, 0.85), 0 0 34px rgba(181, 103, 255, 0.95), 0 0 70px rgba(130, 52, 255, 0.75);
 }
 
-.fab:hover {
+..fab:hover {
   transform: translateY(-3px) scale(1.04);
   box-shadow: 
     0 0 0 1px rgba(255, 255, 255, 0.9),     /* soft white border */
-    0 0 20px rgba(200, 200, 200, 0.8),      /* light grey glow */
-    0 0 40px rgba(150, 150, 150, 0.6);      /* deeper grey outer glow */
+    0 0 20px rgba(220, 220, 220, 0.8),      /* light grey glow */
+    0 0 50px rgba(180, 180, 180, 0.6);      /* outer soft grey glow */
 }
 
 h1:hover, h2:hover, h3:hover, p:hover, li:hover, small:hover, .tag:hover {
-  text-shadow: 0 0 14px rgba(194, 119, 255, 0.65);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);  /* white glow */
 }
 
 .card:hover, .btn:hover, .mobile-nav a:hover, .site-footer a:hover, .nav-links a:hover, input:focus, textarea:focus {
-  filter: drop-shadow(0 0 8px rgba(186, 103, 255, 0.65));
+  filter: drop-shadow(0 0 8px rgba(200, 200, 200, 0.7)); /* soft grey glow */
 }
 
 .typewriter-text {
