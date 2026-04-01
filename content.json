@@ -5,6 +5,20 @@
   },
   "projects": [
     {
+      "id": "a52dc1dd-9f2e-4524-a31b-c1c177afb47d",
+      "title": "Customer Retention & Predictive Churn Analytics",
+      "description": "VIZ-ly is an end-to-end predictive dashboard built with Power BI and Python. It diagnoses a critical 57% SaaS churn rate by identifying behavioral usage gaps and billing friction, transforming raw data into actionable retention strategies to save $697k in MRR.",
+      "tech": [
+        "Python",
+        "SQL",
+        "Excel",
+        "PowerBI"
+      ],
+      "image": "https://raw.githubusercontent.com/Sauravx4/Churn_Project/main/dashboard.png",
+      "demo": "https://github.com/Sauravx4/customer-churn-analysis-powerbi",
+      "source": "https://sauravcodease.netlify.app/blog-post.html?id=bdba2687-fca3-4742-a23f-26c76276a785"
+    },
+    {
       "id": "94df2599-fb97-43d7-bec8-8e4c5e8200ea",
       "title": "VIZ-ly (A Dashboard Platform Application)",
       "description": "AI Dashboard Builder is a full-stack data visualization web app built with React and FastAPI that allows users to upload datasets (CSV/Excel), preview data, and generate interactive charts. It features a drag-and-drop dashboard builder with resizable components and supports exporting dashboards as images or PDFs, making it a lightweight alternative to tools like Power BI and Tableau.",
