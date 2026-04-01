@@ -1,5 +1,6 @@
 const ADMIN_PASSWORD = "Saurav@2026Secure";
 let editingBlogId = null;
+let editingProjectId = null;
 
 function showAdmin(isVisible) {
   document.getElementById("login-view").classList.toggle("hidden", isVisible);
@@ -35,16 +36,38 @@ function itemRow(label, actions) {
   return row;
 }
 
+
+function fillProjectForm(project) {
+  const form = document.getElementById("project-form");
+  form.elements.title.value = project.title;
+  form.elements.description.value = project.description;
+  form.elements.tech.value = Array.isArray(project.tech) ? project.tech.join(", ") : "";
+  form.elements.image.value = project.image || "";
+  form.elements.demo.value = project.demo || "";
+  form.elements.source.value = project.source || "";
+  editingProjectId = project.id;
+  document.getElementById("project-submit-btn").textContent = "Update Project";
+}
+
+function resetProjectForm() {
+  const form = document.getElementById("project-form");
+  form.reset();
+  editingProjectId = null;
+  document.getElementById("project-submit-btn").textContent = "Add Project";
+}
+
 function renderProjectList() {
   const container = document.getElementById("project-list");
   const projects = getWorkingData().projects;
   container.innerHTML = "";
   projects.forEach((project, idx) => {
     container.appendChild(itemRow(`${idx + 1}. ${project.title}`, [
+      createActionButton("Edit", () => fillProjectForm(project)),
       createActionButton("Delete", () => {
         const data = getWorkingData();
         data.projects = data.projects.filter((x) => x.id !== project.id);
         saveWorkingData(data);
+        if (editingProjectId === project.id) resetProjectForm();
         renderProjectList();
       })
     ]));
@@ -146,7 +169,7 @@ document.getElementById("project-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.currentTarget);
   const project = {
-    id: crypto.randomUUID(),
+    id: editingProjectId || crypto.randomUUID(),
     title: formData.get("title").toString().trim(),
     description: formData.get("description").toString().trim(),
     tech: formData.get("tech").toString().split(",").map((t) => t.trim()).filter(Boolean),
@@ -156,9 +179,13 @@ document.getElementById("project-form").addEventListener("submit", (event) => {
   };
 
   const data = getWorkingData();
-  data.projects = [project, ...data.projects];
+  if (editingProjectId) {
+    data.projects = data.projects.map((item) => (item.id === editingProjectId ? project : item));
+  } else {
+    data.projects = [project, ...data.projects];
+  }
   saveWorkingData(data);
-  event.currentTarget.reset();
+  resetProjectForm();
   renderProjectList();
 });
 
