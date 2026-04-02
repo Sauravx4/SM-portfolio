@@ -10,7 +10,7 @@
 # 📸 Portfolio Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Sauravx4/Saurav/main/Screenshot%202026-03-26%20170101.png" alt="Portfolio Screenshot" width="100%"/>
+  <img src="https://github.com/Sauravx4/Saurav/blob/main/Screenshot%202026-03-26%20170101.png" alt="Portfolio Screenshot" width="100%"/>
 </p>
 
 
