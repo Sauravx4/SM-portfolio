@@ -718,3 +718,9 @@ textarea:focus {
   border-radius: 999px;
   background: rgba(122, 61, 255, 0.16);
 }
+
+.visitor-img {
+  height: 20px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
