@@ -687,3 +687,18 @@ textarea:focus {
     width: 100%;
   }
 }
+
+.map-block {
+  margin-top: 0.8rem;
+}
+
+.map-embed {
+  width: 100%;
+  height: 240px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.dark-map {
+  filter: grayscale(1) invert(0.9) hue-rotate(180deg) contrast(1.05) brightness(0.72);
+}
