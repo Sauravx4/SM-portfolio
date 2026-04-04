@@ -183,22 +183,19 @@ async function initVisitorCounter() {
 
   const namespace = "sauravcodease";
   const key = "portfolio-visitors";
-  const localKey = "portfolio_visitor_recorded_v1";
+  const countedFlag = "portfolio_visitor_recorded_v2";
 
   try {
-    let url = `https://api.countapi.xyz/get/${namespace}/${key}`;
-    if (!localStorage.getItem(localKey)) {
-      url = `https://api.countapi.xyz/hit/${namespace}/${key}`;
-      localStorage.setItem(localKey, "true");
+    if (!localStorage.getItem(countedFlag)) {
+      await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+      localStorage.setItem(countedFlag, "true");
     }
 
-    const res = await fetch(url);
+    const res = await fetch(`https://api.countapi.xyz/get/${namespace}/${key}`);
     const data = await res.json();
     el.textContent = Number(data.value || 0).toLocaleString();
   } catch {
-    const fallback = Number(localStorage.getItem("portfolio_local_visits") || "1");
-    el.textContent = fallback.toLocaleString();
-    localStorage.setItem("portfolio_local_visits", String(fallback));
+    el.textContent = "N/A";
   }
 }
 
