@@ -702,3 +702,19 @@ textarea:focus {
 .dark-map {
   filter: grayscale(1) invert(0.9) hue-rotate(180deg) contrast(1.05) brightness(0.72);
 }
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.visitor-badge {
+  font-size: 0.9rem;
+  color: #ded6ff;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid rgba(194, 119, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(122, 61, 255, 0.16);
+}
