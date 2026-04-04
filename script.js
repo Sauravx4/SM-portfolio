@@ -86,7 +86,7 @@ function footerTemplate() {
   return `
     <footer class="site-footer">
       <div class="container footer-inner">
-        <small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small>
+        <div class="footer-meta"><small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small><span class="visitor-badge">👁 <span id="visitor-count">...</span></span></div>
         <nav aria-label="Social links" class="socials">
           <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -176,6 +176,32 @@ function initTypewriter() {
   }, 700);
 }
 
+
+async function initVisitorCounter() {
+  const el = document.getElementById("visitor-count");
+  if (!el) return;
+
+  const namespace = "sauravcodease";
+  const key = "portfolio-visitors";
+  const localKey = "portfolio_visitor_recorded_v1";
+
+  try {
+    let url = `https://api.countapi.xyz/get/${namespace}/${key}`;
+    if (!localStorage.getItem(localKey)) {
+      url = `https://api.countapi.xyz/hit/${namespace}/${key}`;
+      localStorage.setItem(localKey, "true");
+    }
+
+    const res = await fetch(url);
+    const data = await res.json();
+    el.textContent = Number(data.value || 0).toLocaleString();
+  } catch {
+    const fallback = Number(localStorage.getItem("portfolio_local_visits") || "1");
+    el.textContent = fallback.toLocaleString();
+    localStorage.setItem("portfolio_local_visits", String(fallback));
+  }
+}
+
 function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", mobileNavTemplate(activePage));
@@ -252,6 +278,7 @@ async function initPortfolioPage({ activePage, projectSelector, projectLimit, bl
   if (blogSelector) renderBlog(blogSelector);
   if (publisherSelector) renderProjectPublisher(publisherSelector);
   initTypewriter();
+  initVisitorCounter();
   initRevealAnimation();
 }
 
