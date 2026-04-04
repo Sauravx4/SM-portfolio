@@ -86,7 +86,7 @@ function footerTemplate() {
   return `
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div class="footer-meta"><small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small><span class="visitor-badge">👁 <span id="visitor-count">...</span></span></div>
+        <div class="footer-meta"><small>© ${new Date().getFullYear()} Saurav Mourya. Crafted with precision.</small><span class="visitor-badge">👁 <img class="visitor-img" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fsauravcodease.github.io%2Fportfolio&count_bg=%237A3DFF&title_bg=%230B1020&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false" alt="visitor count badge"></span></div>
         <nav aria-label="Social links" class="socials">
           <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -177,28 +177,6 @@ function initTypewriter() {
 }
 
 
-async function initVisitorCounter() {
-  const el = document.getElementById("visitor-count");
-  if (!el) return;
-
-  const namespace = "sauravcodease";
-  const key = "portfolio-visitors";
-  const countedFlag = "portfolio_visitor_recorded_v2";
-
-  try {
-    if (!localStorage.getItem(countedFlag)) {
-      await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-      localStorage.setItem(countedFlag, "true");
-    }
-
-    const res = await fetch(`https://api.countapi.xyz/get/${namespace}/${key}`);
-    const data = await res.json();
-    el.textContent = Number(data.value || 0).toLocaleString();
-  } catch {
-    el.textContent = "N/A";
-  }
-}
-
 function initSharedLayout(activePage) {
   document.body.insertAdjacentHTML("afterbegin", headerTemplate(activePage));
   document.body.insertAdjacentHTML("beforeend", mobileNavTemplate(activePage));
@@ -275,7 +253,6 @@ async function initPortfolioPage({ activePage, projectSelector, projectLimit, bl
   if (blogSelector) renderBlog(blogSelector);
   if (publisherSelector) renderProjectPublisher(publisherSelector);
   initTypewriter();
-  initVisitorCounter();
   initRevealAnimation();
 }
 
